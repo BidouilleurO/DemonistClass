@@ -1,0 +1,100 @@
+Maléfice: 
+  name: 'Maléfice'
+  type: 'Démoniste Classique'
+  max-level: 5
+  skill-req: 'Drain De Vie'
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '0'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '1'
+    level-base: '5'
+    mana-base: '20'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '15'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}&r'
+  icon: 'COAL'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Coût: {attr:cost}'
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  - ''
+  - '&2Réduction dommages: % {attr:effect.value} '
+  - '&2Durée: {attr:effect.seconds}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Particle Projectile-b: 
+          type: 'mechanic'
+          data: 
+            right-scale: '0'
+            forward-base: '0'
+            counts: 'True'
+            upward-scale: '0'
+            lifespan: '1.5'
+            particles-base: '20'
+            type: '0'
+            radius-base: '0.25'
+            frequency: '0.005'
+            arrangement: 'Sphere'
+            use-effect: 'False'
+            velocity-base: '0.5'
+            particle: 'Block Crack'
+            upward-base: '1'
+            pierce: 'False'
+            group: 'Enemy'
+            right-base: '0'
+            forward-scale: '0'
+            radius-scale: '0'
+            particles-scale: '0'
+            amount-base: '1'
+            spread: 'Cone'
+            angle-scale: '0'
+            material: 'Coal Block'
+            gravity: '0'
+            icon-key: ''
+            amount-scale: '0'
+            position: '0'
+            angle-base: '0.25'
+            velocity-scale: '0'
+          children: 
+            Damage Buff-c: 
+              type: 'mechanic'
+              data: 
+                counts: 'True'
+                skill: 'False'
+                value-scale: '-0.05'
+                icon-key: 'effect'
+                type: 'Multiplier'
+                value-base: '0.80'
+                seconds-scale: '0.5'
+                seconds-base: '4'
+              children:  {}
+            Potion-d: 
+              type: 'mechanic'
+              data: 
+                potion: 'Slow'
+                counts: 'True'
+                icon-key: ''
+                ambient: 'True'
+                tier-scale: '0'
+                seconds-scale: '0.5'
+                tier-base: '1'
+                seconds-base: '4'
+              children:  {}

@@ -1,0 +1,132 @@
+Etreinte Noire: 
+  name: 'Etreinte Noire'
+  type: 'Démoniste Classique'
+  max-level: 8
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '-0.5'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '1'
+    mana-base: '30'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '20'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}&r'
+  icon: 'HARD_CLAY'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Coût: {attr:cost}'
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  - ''
+  - '&2Durée du Stun: {attr:stun.duration}'
+  - ''
+  - 'Maitrisez les pouvoirs des ténèbres au '
+  - "point de pouvoir bloquer l'adversaire "
+  - 'durant quelques secondes (et vous '
+  - 'aussi durant 1seconde).'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Cone-b: 
+          type: 'target'
+          data: 
+            angle-scale: '0'
+            caster: 'False'
+            max-base: '1'
+            range-scale: '0'
+            range-base: '7'
+            icon-key: ''
+            angle-base: '90'
+            wall: 'False'
+            group: 'Enemy'
+            max-scale: '0'
+          children: 
+            Particle-c: 
+              type: 'mechanic'
+              data: 
+                counts: 'True'
+                forward: '0'
+                radius-scale: '0'
+                particles-scale: '0'
+                particles-base: '20'
+                right: '0'
+                type: '0'
+                radius-base: '1.5'
+                arrangement: 'Circle'
+                material: 'Coal Block'
+                icon-key: ''
+                particle: 'Block Crack'
+                direction: 'XZ'
+                upward: '1.5'
+              children:  {}
+            Particle-d: 
+              type: 'mechanic'
+              data: 
+                counts: 'True'
+                forward: '0'
+                radius-scale: '0'
+                particles-scale: '0'
+                particles-base: '20'
+                right: '0'
+                type: '0'
+                radius-base: '1.5'
+                arrangement: 'Circle'
+                material: 'Coal Block'
+                icon-key: ''
+                particle: 'Block Crack'
+                direction: 'XZ'
+                upward: '0.5'
+              children:  {}
+            Status-e: 
+              type: 'mechanic'
+              data: 
+                duration-base: '2'
+                counts: 'True'
+                icon-key: 'stun'
+                duration-scale: '0.125'
+                status: 'Stun'
+              children:  {}
+            Damage-f: 
+              type: 'mechanic'
+              data: 
+                counts: 'True'
+                value-scale: '0'
+                true: 'True'
+                classifier: 'default'
+                icon-key: ''
+                type: 'Damage'
+                value-base: '1'
+              children:  {}
+        Self-g: 
+          type: 'target'
+          data: 
+            icon-key: ''
+          children: 
+            Potion-h: 
+              type: 'mechanic'
+              data: 
+                potion: 'Slow'
+                counts: 'True'
+                icon-key: ''
+                ambient: 'False'
+                tier-scale: '0'
+                seconds-scale: '0'
+                tier-base: '10'
+                seconds-base: '1.5'
+              children:  {}

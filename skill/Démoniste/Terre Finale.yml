@@ -1,0 +1,179 @@
+Terre Finale: 
+  name: 'Terre Finale'
+  type: 'Démoniste Classique'
+  max-level: 5
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '2'
+    cooldown-scale: '-5'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '30'
+    mana-base: '100'
+    points-spent-req-base: '0'
+    mana-scale: '5'
+    cooldown-base: '120'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}&r'
+  icon: 'ENDER_PEARL'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Coût: {attr:cost}'
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Channel-b: 
+          type: 'mechanic'
+          data: 
+            time-scale: '0'
+            still: 'True'
+            counts: 'True'
+            time-base: '3'
+            icon-key: ''
+          children: 
+            Block-c: 
+              type: 'mechanic'
+              data: 
+                right-scale: '0'
+                forward-base: '0'
+                right-base: '0'
+                shape: 'Sphere'
+                data: '0'
+                forward-scale: '0'
+                counts: 'True'
+                upward-scale: '0'
+                radius-scale: '0'
+                type: 'Solid'
+                radius-base: '15'
+                seconds-scale: '0'
+                seconds-base: '20'
+                icon-key: ''
+                block: 'Netherrack'
+                upward-base: '0'
+              children:  {}
+            Offset-d: 
+              type: 'target'
+              data: 
+                right-scale: '0'
+                forward-base: '0'
+                right-base: '0'
+                forward-scale: '0'
+                upward-scale: '0'
+                icon-key: ''
+                upward-base: '0'
+              children: 
+                Repeat-e: 
+                  type: 'mechanic'
+                  data: 
+                    period: '1'
+                    delay: '0'
+                    repetitions-base: '20'
+                    counts: 'True'
+                    icon-key: ''
+                    repetitions-scale: '0'
+                  children: 
+                    Area-f: 
+                      type: 'target'
+                      data: 
+                        caster: 'False'
+                        max-base: '99'
+                        radius-scale: '0'
+                        icon-key: ''
+                        radius-base: '15'
+                        wall: 'False'
+                        group: 'Enemy'
+                        max-scale: '0'
+                      children: 
+                        Potion-g: 
+                          type: 'mechanic'
+                          data: 
+                            potion: 'Wither'
+                            counts: 'True'
+                            icon-key: ''
+                            ambient: 'False'
+                            tier-scale: '0'
+                            seconds-scale: '0'
+                            tier-base: '2'
+                            seconds-base: '2'
+                          children:  {}
+                        Potion-h: 
+                          type: 'mechanic'
+                          data: 
+                            potion: 'Weakness'
+                            counts: 'True'
+                            icon-key: ''
+                            ambient: 'True'
+                            tier-scale: '0'
+                            seconds-scale: '0'
+                            tier-base: '1'
+                            seconds-base: '2'
+                          children:  {}
+            Lightning-i: 
+              type: 'mechanic'
+              data: 
+                right-scale: '0'
+                damage: 'False'
+                forward-base: '0'
+                right-base: '0'
+                forward-scale: '0'
+                counts: 'True'
+                icon-key: ''
+              children:  {}
+            Lightning-j: 
+              type: 'mechanic'
+              data: 
+                right-scale: '0'
+                damage: 'False'
+                forward-base: '-2'
+                right-base: '1'
+                forward-scale: '0'
+                counts: 'True'
+                icon-key: ''
+              children:  {}
+            Lightning-k: 
+              type: 'mechanic'
+              data: 
+                right-scale: '0'
+                damage: 'False'
+                forward-base: '3'
+                right-base: '4'
+                forward-scale: '0'
+                counts: 'True'
+                icon-key: ''
+              children:  {}
+            Lightning-l: 
+              type: 'mechanic'
+              data: 
+                right-scale: '0'
+                damage: 'False'
+                forward-base: '7'
+                right-base: '-1'
+                forward-scale: '0'
+                counts: 'True'
+                icon-key: ''
+              children:  {}
+            Lightning-m: 
+              type: 'mechanic'
+              data: 
+                right-scale: '0'
+                damage: 'False'
+                forward-base: '5'
+                right-base: '-5'
+                forward-scale: '0'
+                counts: 'True'
+                icon-key: ''
+              children:  {}

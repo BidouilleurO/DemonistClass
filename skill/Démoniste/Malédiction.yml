@@ -1,0 +1,157 @@
+Malédiction: 
+  name: 'Malédiction'
+  type: 'Démoniste Classique'
+  max-level: 5
+  skill-req: 'Maléfice'
+  skill-req-lvl: 2
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '0'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '1'
+    level-base: '10'
+    mana-base: '60'
+    points-spent-req-base: '0'
+    mana-scale: '2'
+    cooldown-base: '30'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}&r'
+  icon: 'CLAY_BALL'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Coût: {attr:cost}'
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  - ''
+  - '&2Dommages: &6Intelligence x {attr:damagekey.multiplier}'
+  - '&2Durée: {attr:zone.repetitions}'
+  - ''
+  - "Créez une zone d'outre-tombe infligeant "
+  - 'des dégats continus aux cibles et leur '
+  - 'donnant un effet de Slowness !'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Location-f: 
+          type: 'target'
+          data: 
+            range-scale: '1'
+            range-base: '10'
+            icon-key: ''
+            ground: 'True'
+          children: 
+            Repeat-g: 
+              type: 'mechanic'
+              data: 
+                period: '1'
+                delay: '0'
+                repetitions-base: '5'
+                counts: 'True'
+                icon-key: 'zone'
+                repetitions-scale: '1'
+              children: 
+                Area-h: 
+                  type: 'target'
+                  data: 
+                    caster: 'False'
+                    max-base: '99'
+                    radius-scale: '0'
+                    icon-key: ''
+                    radius-base: '5'
+                    wall: 'False'
+                    group: 'Enemy'
+                    max-scale: '0'
+                  children: 
+                    Damage-i: 
+                      type: 'mechanic'
+                      data: 
+                        counts: 'True'
+                        value-scale: '0'
+                        true: 'False'
+                        classifier: 'default'
+                        icon-key: ''
+                        type: 'Damage'
+                        value-base: 'attribute1'
+                      children:  {}
+                    Potion-j: 
+                      type: 'mechanic'
+                      data: 
+                        potion: 'Slow'
+                        counts: 'True'
+                        icon-key: ''
+                        ambient: 'False'
+                        tier-scale: '0'
+                        seconds-scale: '1'
+                        tier-base: '1'
+                        seconds-base: '5'
+                      children:  {}
+            Repeat-k: 
+              type: 'mechanic'
+              data: 
+                period: '0.1'
+                delay: '0'
+                repetitions-base: '50'
+                counts: 'True'
+                icon-key: ''
+                repetitions-scale: '10'
+              children: 
+                Particle-l: 
+                  type: 'mechanic'
+                  data: 
+                    counts: 'True'
+                    forward: '0'
+                    radius-scale: '0'
+                    particles-scale: '0'
+                    particles-base: '600'
+                    right: '0'
+                    type: '0'
+                    radius-base: '4'
+                    arrangement: 'Circle'
+                    material: 'Coal Block'
+                    icon-key: ''
+                    particle: 'Block Crack'
+                    direction: 'XZ'
+                    upward: '0'
+                  children:  {}
+    Initialize: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Passive-b: 
+          type: 'mechanic'
+          data: 
+            counts: 'True'
+            icon-key: ''
+            seconds-scale: '0'
+            seconds-base: '1'
+          children: 
+            Value Attribute-c: 
+              type: 'mechanic'
+              data: 
+                counts: 'True'
+                icon-key: ''
+                attribute: 'Intelligence'
+                key: 'attribute1'
+              children:  {}
+            Value Multiply-d: 
+              type: 'mechanic'
+              data: 
+                multiplier-base: '0.05'
+                counts: 'True'
+                icon-key: 'damagekey'
+                multiplier-scale: '0.01'
+                key: 'attribute1'
+              children:  {}

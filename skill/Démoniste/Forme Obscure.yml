@@ -1,0 +1,107 @@
+Forme Obscure: 
+  name: 'Forme Obscure'
+  type: 'Démoniste Classique'
+  max-level: 8
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '-2'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '34'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '60'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'GLOWSTONE_DUST'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Coût: {attr:cost}'
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  - ''
+  - '&2Durée du sort: {attr:disguised.duration}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Self-b: 
+          type: 'target'
+          data: 
+            icon-key: ''
+          children: 
+            Disguise-c: 
+              type: 'mechanic'
+              data: 
+                mob: 'Bat'
+                duration-base: '5'
+                counts: 'True'
+                icon-key: 'disguised'
+                duration-scale: '0.25'
+                type: 'Mob'
+                adult: 'True'
+              children:  {}
+            Potion-d: 
+              type: 'mechanic'
+              data: 
+                potion: 'Invisibility'
+                counts: 'True'
+                icon-key: ''
+                ambient: 'False'
+                tier-scale: '0'
+                seconds-scale: '0.25'
+                tier-base: '2'
+                seconds-base: '5'
+              children:  {}
+            Repeat-e: 
+              type: 'mechanic'
+              data: 
+                period: '0.1'
+                delay: '0'
+                repetitions-base: '50'
+                counts: 'True'
+                icon-key: ''
+                repetitions-scale: '2.5'
+              children: 
+                Particle-f: 
+                  type: 'mechanic'
+                  data: 
+                    counts: 'True'
+                    forward: '0'
+                    radius-scale: '0'
+                    particles-scale: '0'
+                    particles-base: '50'
+                    right: '0'
+                    type: '0'
+                    radius-base: '0.5'
+                    arrangement: 'Sphere'
+                    material: 'Coal Block'
+                    icon-key: ''
+                    particle: 'Block Crack'
+                    upward: '1'
+                  children:  {}
+            Potion-g: 
+              type: 'mechanic'
+              data: 
+                potion: 'Speed'
+                counts: 'True'
+                icon-key: ''
+                ambient: 'True'
+                tier-scale: '0'
+                seconds-scale: '0.25'
+                tier-base: '5'
+                seconds-base: '5'
+              children:  {}

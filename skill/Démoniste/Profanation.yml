@@ -1,0 +1,150 @@
+Profanation: 
+  name: 'Profanation'
+  type: 'Démoniste Classique'
+  max-level: 8
+  skill-req: 'Malédiction'
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '0'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '15'
+    mana-base: '0'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '0'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'JACK_O_LANTERN'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Coût: {attr:cost}'
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  - ''
+  - '&2Effets : {attr:effect.seconds}'
+  - '&2Distance : {attr:zone.range}'
+  - ''
+  - 'Concentrez-vous pour maudir tout '
+  - 'les ennemis en face de vous et '
+  - 'leur infliger des dégâts continus !'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Channel-b: 
+          type: 'mechanic'
+          data: 
+            time-scale: '0'
+            still: 'True'
+            counts: 'True'
+            time-base: '1'
+            icon-key: ''
+          children: 
+            Cone-c: 
+              type: 'target'
+              data: 
+                angle-scale: '0'
+                caster: 'False'
+                max-base: '5'
+                range-scale: '0.4'
+                range-base: '5'
+                icon-key: 'zone'
+                angle-base: '90'
+                wall: 'False'
+                group: 'Enemy'
+                max-scale: '0'
+              children: 
+                Status-d: 
+                  type: 'mechanic'
+                  data: 
+                    duration-base: '5'
+                    counts: 'True'
+                    icon-key: ''
+                    duration-scale: '1'
+                    status: 'Curse'
+                  children:  {}
+                Message-e: 
+                  type: 'mechanic'
+                  data: 
+                    counts: 'True'
+                    icon-key: ''
+                    message: '&7Vous avez été touchée par une &lprofanation&r&7 !'
+                  children:  {}
+                Potion-f: 
+                  type: 'mechanic'
+                  data: 
+                    potion: 'Wither'
+                    counts: 'True'
+                    icon-key: 'effect'
+                    ambient: 'False'
+                    tier-scale: '0'
+                    seconds-scale: '1'
+                    tier-base: '1'
+                    seconds-base: '5'
+                  children:  {}
+                Repeat-g: 
+                  type: 'mechanic'
+                  data: 
+                    period: '1'
+                    delay: '0'
+                    repetitions-base: '5'
+                    counts: 'True'
+                    icon-key: ''
+                    repetitions-scale: '1'
+                  children: 
+                    Particle-h: 
+                      type: 'mechanic'
+                      data: 
+                        visible-radius: '25'
+                        amount: '0.05'
+                        counts: 'True'
+                        forward: '0'
+                        radius-scale: '0'
+                        particles-scale: '0'
+                        particles-base: '20'
+                        right: '0'
+                        radius-base: '0.1'
+                        speed: '0.05'
+                        arrangement: 'Sphere'
+                        dx: '0'
+                        dy: '0'
+                        dz: '0'
+                        icon-key: ''
+                        particle: 'Enchantment Table'
+                        upward: '2'
+                      children:  {}
+            Particle-i: 
+              type: 'mechanic'
+              data: 
+                visible-radius: '25'
+                amount: '1'
+                counts: 'True'
+                forward: '0'
+                radius-scale: '0'
+                particles-scale: '0'
+                particles-base: '100'
+                right: '0'
+                radius-base: '2'
+                speed: '1'
+                arrangement: 'Circle'
+                dx: '0'
+                dy: '0'
+                dz: '0'
+                icon-key: ''
+                particle: 'Witch Magic'
+                direction: 'XZ'
+                upward: '0'
+              children:  {}

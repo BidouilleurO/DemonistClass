@@ -1,0 +1,68 @@
+Réceptacle de Vie: 
+  name: 'Réceptacle de Vie'
+  type: 'Invocation'
+  max-level: 10
+  skill-req: 'Drain De Vie'
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '-1'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '2'
+    level-base: '1'
+    mana-base: '30'
+    points-spent-req-base: '0'
+    mana-scale: '2'
+    cooldown-base: '50'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}&r'
+  icon: 'EGG'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Coût: {attr:cost}'
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  - ''
+  - ''
+  - '&7Infos invocation:'
+  - ''
+  - '&2Vie: {attr:silverfish.health}'
+  - '&2Durée ( en s ): {attr:silverfish.duration}'
+  - ''
+  - '&2Dommages toujours de 1 !'
+  - ''
+  - "Invoquez deux silverfish d'entre les morts"
+  - 'prêts à se battre pour vous'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Wolf-b: 
+          type: 'mechanic'
+          data: 
+            health-base: '4'
+            color: 'Black'
+            counts: 'True'
+            health-scale: '1'
+            amount-base: '2'
+            damage-base: '1'
+            seconds-scale: '0'
+            seconds-base: '40'
+            skills: 
+            - 'Receptacle Vie Sort'
+            damage-scale: '0'
+            name: '&8{player}&r - Invocation'
+            icon-key: 'silverfish'
+            amount-scale: '0'
+          children:  {}

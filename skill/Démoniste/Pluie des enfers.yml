@@ -1,0 +1,179 @@
+Pluie des enfers: 
+  name: 'Pluie des enfers'
+  type: 'Démoniste Classique'
+  max-level: 3
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '3'
+    cooldown-scale: '-20'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '50'
+    mana-base: '100'
+    points-spent-req-base: '0'
+    mana-scale: '0'
+    cooldown-base: '240'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}&r'
+  icon: 'NETHER_STAR'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Coût: {attr:cost}'
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  - "&2Temps d'invocation: {attr:invoc.time}"
+  - ''
+  - '&2Météores: {attr:projectile.amount}'
+  - '&2Dommages: {attr:damage.value}'
+  - '&2Durée Wither / Glow: {attr:effet.seconds}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Area-b: 
+          type: 'target'
+          data: 
+            caster: 'False'
+            max-base: '99'
+            radius-scale: '0'
+            icon-key: ''
+            radius-base: '10'
+            wall: 'False'
+            group: 'Both'
+            max-scale: '0'
+          children: 
+            Message-c: 
+              type: 'mechanic'
+              data: 
+                counts: 'True'
+                icon-key: ''
+                message: '&5&l[Voix]&r &8Un portail vers les ténèbres se forme.'
+              children:  {}
+        Self-d: 
+          type: 'target'
+          data: 
+            icon-key: ''
+          children: 
+            Repeat-e: 
+              type: 'mechanic'
+              data: 
+                period: '0.5'
+                delay: '0'
+                repetitions-base: '16'
+                counts: 'True'
+                icon-key: ''
+                repetitions-scale: '-2'
+              children: 
+                Particle-f: 
+                  type: 'mechanic'
+                  data: 
+                    visible-radius: '50'
+                    amount: '1'
+                    counts: 'True'
+                    forward: '0'
+                    radius-scale: '0'
+                    particles-scale: '0'
+                    particles-base: '2000'
+                    right: '0'
+                    radius-base: '10'
+                    speed: '1'
+                    arrangement: 'Circle'
+                    dx: '0'
+                    dy: '0'
+                    dz: '0'
+                    icon-key: ''
+                    particle: 'Portal'
+                    direction: 'XZ'
+                    upward: '20'
+                  children:  {}
+        Channel-g: 
+          type: 'mechanic'
+          data: 
+            time-scale: '-1'
+            still: 'True'
+            counts: 'True'
+            time-base: '8'
+            icon-key: 'invoc'
+          children: 
+            Particle Projectile-h: 
+              type: 'mechanic'
+              data: 
+                right-scale: '0'
+                height-scale: '0'
+                forward-base: '0'
+                rain-radius-base: '10'
+                counts: 'True'
+                upward-scale: '0'
+                lifespan: '20'
+                particles-base: '20'
+                type: '0'
+                radius-base: '0.5'
+                rain-radius-scale: '0'
+                frequency: '0.005'
+                arrangement: 'Circle'
+                use-effect: 'False'
+                velocity-base: '2'
+                height-base: '20'
+                particle: 'Block Crack'
+                upward-base: '0'
+                pierce: 'True'
+                group: 'Enemy'
+                direction: 'XZ'
+                right-base: '0'
+                forward-scale: '0'
+                radius-scale: '0'
+                particles-scale: '0'
+                amount-base: '50'
+                spread: 'Rain'
+                material: 'Coal Block'
+                gravity: '0'
+                icon-key: 'projectile'
+                amount-scale: '5'
+                velocity-scale: '0'
+              children: 
+                Damage-i: 
+                  type: 'mechanic'
+                  data: 
+                    counts: 'True'
+                    value-scale: '1'
+                    true: 'False'
+                    classifier: 'default'
+                    icon-key: 'damage'
+                    type: 'Damage'
+                    value-base: '5'
+                  children:  {}
+                Potion-j: 
+                  type: 'mechanic'
+                  data: 
+                    potion: 'Glowing'
+                    counts: 'True'
+                    icon-key: ''
+                    ambient: 'False'
+                    tier-scale: '0'
+                    seconds-scale: '0'
+                    tier-base: '1'
+                    seconds-base: '5'
+                  children:  {}
+                Potion-k: 
+                  type: 'mechanic'
+                  data: 
+                    potion: 'Wither'
+                    counts: 'True'
+                    icon-key: 'effet'
+                    ambient: 'True'
+                    tier-scale: '0'
+                    seconds-scale: '1'
+                    tier-base: '2'
+                    seconds-base: '5'
+                  children:  {}

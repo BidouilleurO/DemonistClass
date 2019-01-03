@@ -1,0 +1,184 @@
+Drain De Vie: 
+  name: 'Drain De Vie'
+  type: 'Démoniste Classique'
+  max-level: 10
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '0'
+    cooldown-scale: '-0.1'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '2'
+    level-base: '1'
+    mana-base: '10'
+    points-spent-req-base: '0'
+    mana-scale: '0.5'
+    cooldown-base: '2'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}&r'
+  icon: 'GHAST_TEAR'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Coût: {attr:cost}'
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  - ''
+  - '&cDégats : &6Intelligence * {attr:int_damage_key.multiplier}'
+  - '&cSoin : {attr:heal_info.value} &cPdv'
+  - ''
+  - "Puisez dans l'énergie vitale de"
+  - 'vos ennemis pour infliger quelques '
+  - 'dégâts et regagner la vôtre de la moitié '
+  - 'des dégâts infligés !'
+  - ''
+  - '&4Ce sort utilise exclusivement votre stat "Intelligence"'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Particle Projectile-b: 
+          type: 'mechanic'
+          data: 
+            right-scale: '0'
+            forward-base: '0'
+            counts: 'True'
+            upward-scale: '0'
+            lifespan: '1'
+            particles-base: '10'
+            radius-base: '0.5'
+            speed: '1'
+            frequency: '0.005'
+            arrangement: 'Sphere'
+            use-effect: 'False'
+            dx: '0'
+            dy: '0'
+            dz: '0'
+            velocity-base: '0.5'
+            particle: 'Witch Magic'
+            upward-base: '1'
+            pierce: 'False'
+            group: 'Enemy'
+            visible-radius: '25'
+            amount: '1'
+            right-base: '0'
+            forward-scale: '0'
+            radius-scale: '0'
+            particles-scale: '0'
+            amount-base: '1'
+            spread: 'Cone'
+            angle-scale: '0'
+            gravity: '0'
+            icon-key: ''
+            amount-scale: '0'
+            position: '1'
+            angle-base: '0.25'
+            velocity-scale: '0'
+          children: 
+            Damage-c: 
+              type: 'mechanic'
+              data: 
+                counts: 'True'
+                value-scale: '0'
+                true: 'False'
+                classifier: 'default'
+                icon-key: ''
+                type: 'Damage'
+                value-base: 'int_damage_key'
+              children:  {}
+            Self-d: 
+              type: 'target'
+              data: 
+                icon-key: ''
+              children: 
+                Heal-e: 
+                  type: 'mechanic'
+                  data: 
+                    counts: 'True'
+                    value-scale: '0'
+                    icon-key: 'heal_info'
+                    type: 'Health'
+                    value-base: 'int_heal_key'
+                  children:  {}
+    Initialize: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Passive-g: 
+          type: 'mechanic'
+          data: 
+            counts: 'True'
+            icon-key: ''
+            seconds-scale: '0'
+            seconds-base: '1'
+          children: 
+            Value Attribute-h: 
+              type: 'mechanic'
+              data: 
+                counts: 'True'
+                icon-key: ''
+                attribute: 'Intelligence'
+                key: 'int_damage'
+              children:  {}
+            Value Set-i: 
+              type: 'mechanic'
+              data: 
+                counts: 'True'
+                value-scale: '0'
+                icon-key: 'int_damed'
+                value-base: 'int_damage'
+                key: 'int_damage_key'
+              children:  {}
+            Value Multiply-j: 
+              type: 'mechanic'
+              data: 
+                multiplier-base: '0.1'
+                counts: 'True'
+                icon-key: 'int_damage_key'
+                multiplier-scale: '0.01'
+                key: 'int_damage_key'
+              children:  {}
+        Passive-k: 
+          type: 'mechanic'
+          data: 
+            counts: 'True'
+            icon-key: ''
+            seconds-scale: '0'
+            seconds-base: '1'
+          children: 
+            Value Attribute-l: 
+              type: 'mechanic'
+              data: 
+                counts: 'True'
+                icon-key: ''
+                attribute: 'Intelligence'
+                key: 'int_heal'
+              children:  {}
+            Value Set-m: 
+              type: 'mechanic'
+              data: 
+                counts: 'True'
+                value-scale: '0'
+                icon-key: ''
+                value-base: 'int_heal'
+                key: 'int_heal_key'
+              children:  {}
+            Value Multiply-n: 
+              type: 'mechanic'
+              data: 
+                multiplier-base: '0.05'
+                counts: 'True'
+                icon-key: ''
+                multiplier-scale: '0.005'
+                key: 'int_heal_key'
+              children:  {}

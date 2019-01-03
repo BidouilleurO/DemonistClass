@@ -1,0 +1,42 @@
+Démoniste: 
+  name: 'Démoniste'
+  prefix: '&5&lDémoniste'
+  group: 'class'
+  mana: '&1Mana'
+  max-level: 50
+  parent: ''
+  needs-permission: 'false'
+  attributes: 
+    health-base: '25'
+    spirit-scale: '0.3'
+    strength-base: '4'
+    dexterity-base: '5'
+    dexterity-scale: '0.1'
+    mana-base: '200'
+    health-scale: '0.25'
+    vitality-scale: '0.1'
+    spirit-base: '20'
+    intelligence-scale: '0.35'
+    strength-scale: '0.1'
+    mana-scale: '5'
+    vitality-base: '4'
+    intelligence-base: '22'
+  mana-regen: 2.0
+  tree: 'BASIC_VERTICAL'
+  skills: 
+  - 'Drain De Vie'
+  - 'Réceptacle de Vie'
+  - 'Invocation Skel'
+  - 'Maléfice'
+  - 'Malédiction'
+  - 'Profanation'
+  - 'Vague Osseuse'
+  - 'Etreinte Noire'
+  - 'Forme Obscure'
+  - 'Terre Finale'
+  - 'Pluie des enfers'
+  - 'Regain'
+  - 'Eschiva'
+  icon: 'SOUL_SAND'
+  icon-data: 0
+  exp-source: 273

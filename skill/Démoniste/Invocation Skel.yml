@@ -1,0 +1,92 @@
+Invocation Skel: 
+  name: 'Invocation Skel'
+  type: 'Invocation'
+  max-level: 10
+  skill-req: 'Drain De Vie'
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  combo: 'L L R R'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '0'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '1'
+    level-base: '5'
+    mana-base: '50'
+    points-spent-req-base: '0'
+    mana-scale: '4'
+    cooldown-base: '25'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}&r'
+  icon: 'IRON_NUGGET'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Coût: {attr:cost}'
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  - ''
+  - '&7&linfos Skeleton :&r'
+  - ''
+  - '&2Duration (en s): &6Intelligence'
+  - '&2Point de Vie:  &6Vitalité'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Wolf-b: 
+          type: 'mechanic'
+          data: 
+            health-base: 'vitality_sq'
+            color: 'Black'
+            counts: 'True'
+            health-scale: '0'
+            amount-base: '1'
+            damage-base: '1'
+            seconds-scale: '0'
+            seconds-base: 'int_sq'
+            skills: 
+            - 'Invocation Skel Sort'
+            damage-scale: '0'
+            name: '&8{player}&r - SkelInvocation'
+            icon-key: ''
+            amount-scale: '0'
+          children:  {}
+    Initialize: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Passive-d: 
+          type: 'mechanic'
+          data: 
+            counts: 'True'
+            icon-key: ''
+            seconds-scale: '0'
+            seconds-base: '1'
+          children: 
+            Value Attribute-e: 
+              type: 'mechanic'
+              data: 
+                counts: 'True'
+                icon-key: ''
+                attribute: 'Vitality'
+                key: 'vitality_sq'
+              children:  {}
+            Value Attribute-f: 
+              type: 'mechanic'
+              data: 
+                counts: 'True'
+                icon-key: ''
+                attribute: 'Intelligence'
+                key: 'int_sq'
+              children:  {}

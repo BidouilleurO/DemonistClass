@@ -1,0 +1,112 @@
+Vague Osseuse: 
+  name: 'Vague Osseuse'
+  type: 'Démoniste Classique'
+  max-level: 8
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    cost-base: '1'
+    cooldown-scale: '-1'
+    incompatible: 
+    - ''
+    cost-scale: '0'
+    level-scale: '0'
+    level-base: '17'
+    mana-base: '40'
+    points-spent-req-base: '0'
+    mana-scale: '1'
+    cooldown-base: '20'
+    points-spent-req-scale: '0'
+  msg: '&6{player} &2has cast &6{skill}&r'
+  icon: 'BONE_BLOCK'
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Coût: {attr:cost}'
+  - ''
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      data: 
+        icon-key: ''
+      children: 
+        Particle-b: 
+          type: 'mechanic'
+          data: 
+            visible-radius: '25'
+            amount: '1'
+            counts: 'True'
+            forward: '0'
+            radius-scale: '0'
+            particles-scale: '0'
+            particles-base: '50'
+            right: '0'
+            radius-base: '2'
+            speed: '1'
+            arrangement: 'Circle'
+            dx: '0'
+            dy: '0'
+            dz: '0'
+            icon-key: ''
+            particle: 'Witch Magic'
+            direction: 'XZ'
+            upward: '0'
+          children:  {}
+        Channel-c: 
+          type: 'mechanic'
+          data: 
+            time-scale: '0'
+            still: 'True'
+            counts: 'True'
+            time-base: '3'
+            icon-key: ''
+          children: 
+            Item Projectile-d: 
+              type: 'mechanic'
+              data: 
+                right-scale: '0'
+                forward-base: '0'
+                -particle-data: '0'
+                counts: 'True'
+                upward-scale: '0'
+                -anim-size: '1'
+                -shape-size: '1'
+                effect-key: 'default'
+                -particle-amount: '2'
+                use-effect: 'True'
+                -particle-speed: '1'
+                velocity-base: '1'
+                -particle-type: 'SPELL'
+                -shape: 'hexagon'
+                upward-base: '0'
+                group: 'Enemy'
+                item: 'Bone'
+                right-base: '0'
+                forward-scale: '0'
+                -animation: 'circle'
+                amount-base: '20'
+                duration-scale: '0'
+                -particle-dz: '0'
+                spread: 'Cone'
+                angle-scale: '0'
+                -particle-material: 'Wood'
+                -particle-dx: '0'
+                duration-base: '1'
+                -particle-dy: '0'
+                -shape-dir: 'XY'
+                -interval: '1'
+                -anim-dir: 'XZ'
+                icon-key: ''
+                amount-scale: '0'
+                position: '0'
+                -view-range: '25'
+                item-data: '0'
+                angle-base: '30'
+                velocity-scale: '0'
+              children:  {}
